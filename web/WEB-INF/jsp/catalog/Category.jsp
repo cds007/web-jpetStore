@@ -2,7 +2,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-    <a href="viewCategory?categoryId=${sessionScope.product.categoryId}">Return to ${sessionScope.product.categoryId}</a>
+    <a href="viewCategory?categoryId=${sessionScope.product.categoryId}">回到${sessionScope.product.categoryId}</a>
 </div>
 
 <div id="Catalog">

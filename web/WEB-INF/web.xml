@@ -73,6 +73,7 @@
         <url-pattern>/updateCartQuantities</url-pattern>
     </servlet-mapping>
 
+    <!--从购物车删除-->
     <servlet>
         <servlet-name>RemoveItemFromCartServlet</servlet-name>
         <servlet-class>org.csu.webJpetStore.web.servlets.RemoveItemFromCartServlet</servlet-class>
@@ -81,6 +82,18 @@
         <servlet-name>RemoveItemFromCartServlet</servlet-name>
         <url-pattern>/removeItemFromCart</url-pattern>
     </servlet-mapping>
+
+    <!--配置ViewItemServlet-->
+    <servlet>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.ViewItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <url-pattern>/viewItem</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
 
