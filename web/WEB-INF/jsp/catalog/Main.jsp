@@ -23,23 +23,23 @@
                 <a href="viewProduct?productId=LJKLY-03"><font color="black" size="1"><strong>六角恐龙鱼</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/fishMain.png" alt="孔雀鱼" title="孔雀鱼" /></div>
-                <a href=""><font color="black" size="1"><strong>孔雀鱼</strong></font>></a>
+                <a href="viewProduct?productId=KQY-04"><font color="black" size="1"><strong>孔雀鱼</strong></font>></a>
             </div>
         </li>
         <li>
             <a href="#">宠物狗</a>
             <div class="div2">
                 <div class="av"><img src="images/DogMain.jpg" alt="金毛" title="金毛" /></div>
-                <a href=""><font color="black" size="1"><strong>金毛</strong></font>></a>
+                <a href="viewProduct?productId=JM-01"><font color="black" size="1"><strong>金毛</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/DogMain2.jpg" alt="哈士奇" title="哈士奇" /></div>
-                <a href=""><font color="black" size="1"><strong>哈士奇</strong></font>></a>
+                <a href="viewProduct?productId=HSQ-02"><font color="black" size="1"><strong>哈士奇</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/DogMain3.jpg" alt="柴犬" title="柴犬" /></div>
-                <a href=""><font color="black" size="1"><strong>柴犬</strong></font>></a>
+                <a href="viewProduct?productId=CQ-034"><font color="black" size="1"><strong>柴犬</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/DogMain4.jpg" alt="拉布拉多" title="拉布拉多" /></div>
-                <a href="viewProduct?productId=KQY-04"><font color="black" size="1"><strong>拉布拉多</strong></font>></a>
+                <a href="viewProduct?productId=LBLD-04"><font color="black" size="1"><strong>拉布拉多</strong></font>></a>
             </div>
         </li>
         <li>

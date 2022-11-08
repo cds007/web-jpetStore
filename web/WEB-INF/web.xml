@@ -93,6 +93,45 @@
         <url-pattern>/viewItem</url-pattern>
     </servlet-mapping>
 
+    <!--跳转到生成订单表-->
+    <servlet>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.NewOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <url-pattern>/newOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <!--跳转到确认订单表-->
+    <servlet>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.ConfirmOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <url-pattern>/conFirmOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <!--查看最终订单-->
+    <servlet>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.ViewOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
+
+    <!--更改地址-->
+    <servlet>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.ShippingAddressServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <url-pattern>/shippingAddress</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

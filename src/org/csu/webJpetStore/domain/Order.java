@@ -282,6 +282,7 @@ public class Order implements Serializable {
 
         totalPrice = cart.getSubTotal();
 
+        /**这个肯定也得修改，这个是他默认的银行卡信息**/
         creditCard = "999 9999 9999 9999";
         expiryDate = "12/03";
         cardType = "Visa";
