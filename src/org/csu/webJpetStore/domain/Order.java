@@ -259,22 +259,22 @@ public class Order implements Serializable {
 
     public void initOrder(Account account, Cart cart) {
 
-        username = account.getUsername();
+        username = account.getUserid();
         orderDate = new Date(System.currentTimeMillis());
 
-        shipToFirstName = account.getFirstName();
-        shipToLastName = account.getLastName();
-        shipAddress1 = account.getAddress1();
-        shipAddress2 = account.getAddress2();
+        shipToFirstName = account.getFirstname();
+        shipToLastName = account.getLastname();
+        shipAddress1 = account.getAddr1();
+        shipAddress2 = account.getAddr2();
         shipCity = account.getCity();
         shipState = account.getState();
         shipZip = account.getZip();
         shipCountry = account.getCountry();
 
-        billToFirstName = account.getFirstName();
-        billToLastName = account.getLastName();
-        billAddress1 = account.getAddress1();
-        billAddress2 = account.getAddress2();
+        billToFirstName = account.getFirstname();
+        billToLastName = account.getLastname();
+        billAddress1 = account.getAddr1();
+        billAddress2 = account.getAddr2();
         billCity = account.getCity();
         billState = account.getState();
         billZip = account.getZip();

@@ -16,7 +16,7 @@ public class ProductDAOImpl implements ProductDAO {
     private static final String getProductString = "SELECT PRODUCTID, NAME, DESCN as description, CATEGORY as categoryId " +
             "FROM PRODUCT WHERE PRODUCTID = ?";
     private static final String searchProductListString = "select PRODUCTID, NAME, DESCN as description, " +
-            "CATEGORY as categoryId from PRODUCT WHERE lower(name) like ?";
+            "CATEGORY as categoryId from PRODUCT WHERE trim(name) like ?";
 
     @Override
     public List<Product> getProductListByCategory(String categoryId) {

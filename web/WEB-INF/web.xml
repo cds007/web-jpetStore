@@ -133,6 +133,78 @@
         <url-pattern>/shippingAddress</url-pattern>
     </servlet-mapping>
 
+    <!--配置SearchServlet-->
+    <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.SearchProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <url-pattern>/searchProduct</url-pattern>
+    </servlet-mapping>
+
+
+    <!--登录界面配置-->
+    <servlet>
+        <servlet-name>SignonForm</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.SignonFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignonForm</servlet-name>
+        <url-pattern>/loginForm</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Signon</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.SignonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Signon</servlet-name>
+        <url-pattern>/signon</url-pattern>
+    </servlet-mapping>
+
+
+    <!--小写是注册界面的servlet-->
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.RegisteronFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.RegisteronServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <!--账户的servlet-->
+    <servlet>
+        <servlet-name>MyAccountForm</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.MyAccountFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyAccountForm</servlet-name>
+        <url-pattern>/MyAccountForm</url-pattern>
+    </servlet-mapping>
+    
+    <!--改变账户-->
+    <servlet>
+        <servlet-name>MyAccountExchange</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.MyAccountExchangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyAccountExchange</servlet-name>
+        <url-pattern>/MyAccountExchange</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
 

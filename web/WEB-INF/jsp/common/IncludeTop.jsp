@@ -37,8 +37,12 @@
     <div class="container clearf">
         <div class="col-2 logo">宠物商店</div>
         <div class="col-5 search-bar">
-            <input type="text">
-            <button>搜索</button>
+            <!--搜索栏目-->
+            <form action="searchProduct" method="post">
+                <input type="text" name="keyword" size="14" />
+                <%--                    <input type="submit" name="searchProducts" value="Search" />--%>
+                <button type="submit" name="searchProducts" value="Search">搜索</button>
+            </form>
         </div>
         <div class="col-3 cart">
             <a href="viewCart" class="item">我的购物车</a>

@@ -34,15 +34,15 @@ public class NewOrderFormServlet extends HttpServlet {
         HttpSession session = request.getSession();
         account = (Account)session.getAttribute("account");
         cart = (Cart)session.getAttribute("cart");
-        account = new Account();
-        account.setAddress1("中国");
-        account.setAddress2("湖南长沙");
-        account.setUsername("陈龙");
-        account.setPassword("123456");
-        account.setEmail("1120@qq.com");
-        account.setFirstName("龙");
-        account.setLastName("陈");
-        session.setAttribute("account",account);
+//        account = new Account();
+//        account.setAddress1("中国");
+//        account.setAddress2("湖南长沙");
+//        account.setUsername("陈龙");
+//        account.setPassword("123456");
+//        account.setEmail("1120@qq.com");
+//        account.setFirstName("龙");
+//        account.setLastName("陈");
+//        session.setAttribute("account",account);
         if (account == null){
             session.setAttribute("message", "You must sign on before attempting to check out.  Please sign on and try checking out again.");
             request.getRequestDispatcher(SIGNONFORM).forward(request, response);
