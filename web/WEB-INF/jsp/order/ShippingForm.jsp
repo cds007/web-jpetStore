@@ -8,9 +8,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog">
+<div class="Order" align="center">
   <form action="shippingAddress" method="post">
-    <table>
+    <table class="table-2 firstTable">
       <tr>
         <th colspan=2>Shipping Address</th>
       </tr>
@@ -49,7 +49,7 @@
       </tr>
 
     </table>
-    <input type="submit" name="newOrder" value="Continue"/>
+    <input type="submit" name="newOrder" value="Continue" class="buttonContinue"/>
   </form>
 </div>
 

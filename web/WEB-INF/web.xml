@@ -133,6 +133,16 @@
         <url-pattern>/shippingAddress</url-pattern>
     </servlet-mapping>
 
+    <!--查看订单列表-->
+    <servlet>
+        <servlet-name>ViewListOrderServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.ViewListOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewListOrderServlet</servlet-name>
+        <url-pattern>/viewListOrder</url-pattern>
+    </servlet-mapping>
+
     <!--配置SearchServlet-->
     <servlet>
         <servlet-name>SearchProductServlet</servlet-name>

@@ -14,6 +14,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/TopButtomMain.css">
+    <link rel="stylesheet" href="css/order.css">
     <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <title>宠物商店哦哦哦</title>
     <style>
@@ -26,12 +27,19 @@
             <a href="main" class="item">首页</a>
         </div>
         <div class="right">
-            <a href="" class="item">我的订单</a>
-            <a href="" class="item">收藏夹</a>
-            <a href="" class="item">注册</a>
-            <a href="" class="item">登录</a>
+            <c:if test="${sessionScope.account!=null}">
+                <a href="viewListOrder?name=${sessionScope.account.name}" class="item">我的订单</a>
+                <a href="" class="item">收藏夹</a>
+                <a href="#" class="item">退出登录</a>
+                <a href="#" class="item">个人主页</a>
+            </c:if>
+            <c:if test="${sessionScope.account==null}">
+                <a href="loginForm" class="item">我的订单</a>
+                <a href="" class="item">收藏夹</a>
+                <a href="register" class="item">注册</a>
+                <a href="loginForm" class="item">登录</a>
+            </c:if>
         </div>
-    </div>
 </div>
 <div class="header">
     <div class="container clearf">

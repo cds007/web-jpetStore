@@ -49,9 +49,11 @@ public class OrderService {
             LineItem lineItem = (LineItem) order.getLineItems().get(i);
             String itemId = lineItem.getItemId();
             Integer increment = new Integer(lineItem.getQuantity());
-            Map<String, Object> param = new HashMap<String, Object>(2);
+            String increment1 = Integer.toString(increment);
+            /**修改一下**/
+            Map<String, String> param = new HashMap<String, String>(2);
             param.put("itemId", itemId);
-            param.put("increment", increment);
+            param.put("increment", increment1);
             itemDAO.updateInventoryQuantity(param);
         }
 

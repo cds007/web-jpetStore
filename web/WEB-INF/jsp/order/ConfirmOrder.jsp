@@ -11,10 +11,8 @@
 <div id="BackLink">
     <a href="main">Return to Main Menu</a>
 </div>
-
-<div id="Catalog">Please confirm the information below and then press continue...
-
-    <table>
+<div class="Order" align="center">
+    <table class="table-2 firstTable">
         <tr>
             <th align="center" colspan="2"><font size="4"><b>Order</b></font>
                 <br />
@@ -96,7 +94,8 @@
         </tr>
 
     </table>
-    <a class="Button" href="viewOrder">Confirm</a>
+    <br>
+    <button class="buttonContinue" style="height:50px;width:100px;"><a  href="viewOrder">确认订单</a></button>
 </div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

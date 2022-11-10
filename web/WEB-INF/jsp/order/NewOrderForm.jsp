@@ -7,13 +7,26 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/IncludeTop.jsp"%>
-
-<div id="Catalog">
+<div class="Order" align="center">
+    <h2><strong>请确认订单</strong></h2>
     <form action="conFirmOrderForm" method="post">
-        <table>
+        <table class="table-2 firstTable"  summary="Meeting Results">
+            <!--表头-->
+            <thead>
             <tr>
-                <th colspan=2>Payment Details</th>
+                <th colspan=2 scope="col">Payment Details</th>
+                <!-- <th scope="col">Division</th>
+                <th scope="col">Suggestions</th> -->
             </tr>
+            </thead>
+            <!--表尾-->
+            <tfoot>
+            <tr>
+                <td colspan="4">IE 6 users won't see the transparent background if the hack is not applied</td>
+            </tr>
+            </tfoot>
+            <!--表格-->
+            <tbody>
             <tr>
                 <td>Card Type:</td>
                 <td>
@@ -36,10 +49,13 @@
                     <input type="text" name="expiryDate" value="12/03"/>
                 </td>
             </tr>
-
+            <thead>
             <tr>
-                <th colspan=2>Billing Address</th>
+                <th colspan=2 scope="col">Billing Address</th>
+                <!-- <th scope="col">Division</th>
+                <th scope="col">Suggestions</th> -->
             </tr>
+            </thead>
             <tr>
                 <td>First name:</td>
                 <td>
@@ -95,8 +111,10 @@
                     Ship to different address...
                 </td>
             </tr>
+            </tbody>
         </table>
-        <input type="submit" name="newOrder" value="Continue"/>
+        <br>
+        <input type="submit" name="newOrder" value="继续" class="buttonContinue"/>
     </form>
 </div>
 

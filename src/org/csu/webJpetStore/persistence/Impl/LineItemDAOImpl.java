@@ -17,7 +17,7 @@ public class LineItemDAOImpl implements LineItemDAO{
             "LINENUM AS lineNumber, ITEMID, QUANTITY, UNITPRICE FROM LINEITEM" +
             " WHERE ORDERID = ?";
     private static final String insertLineItemString = " INSERT INTO LINEITEM " +
-            "(ORDERID, LINENUM, ITEMID, QUANTITY, UNITPRICE) VALUES (?, ?, ?, ?, )";
+            "(ORDERID, LINENUM, ITEMID, QUANTITY, UNITPRICE) VALUES (?, ?, ?, ?, ?)";
 
 
     @Override

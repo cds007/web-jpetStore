@@ -335,12 +335,230 @@ ul li:hover .div2 {
 }
 
 /*原宠物商店表格的css，可以不用管*/
-#BackLink{
-    padding: 1ex;
-    float: right;
-    border-width: .1ex 0ex .1ex 0px;
+img {
+    border: 0;
+}
+
+li {
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex;
+}
+
+table {
+    border-width: 0;
+    empty-cells: show;
+}
+
+td, th {
+    empty-cells: show;
+    padding: .3ex .3ex;
+    vertical-align: top;
+    text-align: left;
+    border-width: 0;
+    border-spacing: 0;
+    background-color: #ececec
+}
+
+th {
+    font-weight: bold;
+    background-color: #e2e2e2;
+}
+
+a, a:visited, a:link {
+    color: #039;
+
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+}
+
+a:hover {
+    color: #69f;
+}
+
+a.Button, a.Button:link, a.Button:visited {
+    padding: .3ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+}
+
+a.Button:hover {
+    color: #000;
+    background-color: #54c07a;
+}
+
+#Logo {
+    width: 33%;
+    height: 9ex;
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex 0ex 0ex 0ex;
+    border-width: 0ex 0ex .3ex 0px;
     border-style: solid;
-    border-color: #000;
+    border-color: #ccc;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    height: 9ex;
+}
+
+body>#Logo {
+    height: 9ex;
+}
+
+#Menu {
+    width: 33%;
+    height: 9ex;
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex 0ex 0ex 0ex;
+    border-width: 0ex 0ex .3ex 0px;
+    border-style: solid;
+    border-color: #ccc;
+    float: left;
+    background-color: #000;
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    text-align: center;
+    line-height: 9ex;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    height: 9ex;
+}
+
+#Menu, #Menu a, #Menu a:link, #Menu a:visited, #Menu a:hover {
+    color: #eaac00;
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+}
+
+body>#Menu {
+    height: 9ex;
+}
+
+{
+}
+
+#Search {
+    width: 33%;
+    height: 9ex;
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex 0ex 0ex 0ex;
+    border-width: 0ex 0ex .3ex 0px;
+    border-style: solid;
+    border-color: #ccc;
+    float: left;
+    text-align: center;
+    background-color: #000;
+    color: #eaac00;
+    line-height: 9ex;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    height: 9ex;
+}
+
+body>#Search {
+    height: 9ex;
+}
+
+#Search input {
+    border-width: .1ex .1ex .1ex .1ex;
+    border-style: solid;
+    border-color: #aaa;
+    background-color: #666;
+    color: #eaac00;
+}
+
+#QuickLinks {
+    text-align: center;
+    background-color: #FFF;
+    width: 99%;
+}
+
+#PoweredBy {
+    width: 30%;
+    height: 9ex;
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex 0ex 0ex 0ex;
+    border-width: .3ex 0ex .3ex 0px;
+    border-style: solid;
+    border-color: #ccc;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    height: 9ex;
+}
+
+body>#PoweredBy {
+    height: 9ex;
+}
+
+#Banner {
+    width: 69%;
+    height: 9ex;
+    margin: 0ex 0ex 0ex 0ex;
+    padding: 0ex 0ex 0ex 0ex;
+    border-width: .3ex 0ex .3ex 0px;
+    border-style: solid;
+    border-color: #ccc;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    line-height: 9ex;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    height: 9ex;
+}
+
+body>#Banner {
+    height: 9ex;
+}
+
+#Content {
+    margin: 0;
+    padding: 0ex 0ex 0ex 0ex;
+    width: 99%;
+    color: #333;
+    background-color: #FFF;
+    border-width: 0;
+}
+
+#Separator {
+    clear:both;
+    margin: 0;
+    height:0;
+}
+
+#Main {
+    margin: 0;
+    padding: 1ex;
+    color: #333;
+    background-color: #FFF;
+    border-width: 1ex 0ex 2ex 0px;
+    border-style: solid;
+    border-color: #fff;
+}
+
+#Sidebar {
+    float: left;
+    background:inherit;
+    width: 30%;
+}
+
+#MainImage {
+    float: left;
+    background:inherit;
+    text-align:center;
+    width: 50%;
 }
 
 #Catalog {
@@ -365,24 +583,55 @@ ul li:hover .div2 {
 }
 
 #Catalog table{
-    margin-left:auto;
-    margin-right:auto;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(230, 189, 189);
 }
 
-a.Button, a.Button:link, a.Button:visited {
-    padding: .3ex;
-    color: #fff;
-    background-color: #005e21;
-    text-decoration: none;
-    font-family: helvetica, tahoma, arial, verdana, sans-serif;
-    font-size: 1.5ex;
+#Catalog thead, tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(230, 189, 189);
 }
 
-a.Button:hover {
-    color: #000;
-    background-color: #54c07a;
+#Catalog td, th{
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    color: rgb(177, 106, 104);
 }
 
+#Catalog tr:nth-child(even) {
+    background: rgb(238, 211, 210)
+}
+#Catalog tr:nth-child(odd) {
+    background: #FFF
+}
+
+
+
+#BackLink{
+    padding: 1ex;
+    float: right;
+    border-width: .1ex 0ex .1ex 0px;
+    border-style: solid;
+    border-color: #000;
+}
+
+#Cart{
+    width: 69.99%;
+    float: left;
+    background-color:#fff;
+}
+
+#MyList{
+    width: 30%;
+    float: left;
+    background-color:#ccc;
+    text-align:left;
+}
+
+/****************************************分割符*****/
 .public-shop-cart-one > .content {
     width: 1200px;
     background-color: #fff;
@@ -883,3 +1132,5 @@ footer a:hover {
 .user-form .user-form-link .link:hover{
     color: #215496;
 }
+
+

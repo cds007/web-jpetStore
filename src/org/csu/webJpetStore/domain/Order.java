@@ -260,6 +260,11 @@ public class Order implements Serializable {
     public void initOrder(Account account, Cart cart) {
 
         username = account.getUserid();
+        if (username == null){
+            System.out.println("username is null when initorder");
+        }else{
+            System.out.println("username is not null when initorder");
+        }
         orderDate = new Date(System.currentTimeMillis());
 
         shipToFirstName = account.getFirstname();

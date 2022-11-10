@@ -190,6 +190,11 @@ public class OrderDAOImpl implements OrderDAO{
 
     @Override
     public void insertOrder(Order order) {
+        if (order.getUsername()==null){
+            System.out.println("order.getUsername is null");
+        }else{
+            System.out.println("order.getUsername is not null");
+        }
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(insertOrderString);

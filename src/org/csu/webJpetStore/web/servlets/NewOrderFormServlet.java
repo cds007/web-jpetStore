@@ -34,6 +34,9 @@ public class NewOrderFormServlet extends HttpServlet {
         HttpSession session = request.getSession();
         account = (Account)session.getAttribute("account");
         cart = (Cart)session.getAttribute("cart");
+        if (account == null){
+            System.out.println("account is null");
+        }
 //        account = new Account();
 //        account.setAddress1("中国");
 //        account.setAddress2("湖南长沙");
@@ -51,7 +54,7 @@ public class NewOrderFormServlet extends HttpServlet {
             order.initOrder(account, cart);
             session.setAttribute("order", order);
 
-            Account account = (Account)session.getAttribute("account");
+//            Account account = (Account)session.getAttribute("account");
             /**日志相关信息**/
 //            if(account != null){
 //                HttpServletRequest httpRequest= request;
@@ -68,7 +71,7 @@ public class NewOrderFormServlet extends HttpServlet {
             /**购物车为空的情况**/
             session.setAttribute("message", "An order could not be created because a cart could not be found.");
 
-            Account account = (Account)session.getAttribute("account");
+//            Account account = (Account)session.getAttribute("account");
             /**日志相关信息**/
 //            if(account != null){
 //                HttpServletRequest httpRequest= request;

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ItemDAO {
-    void updateInventoryQuantity(Map<String, Object> param);
+    void updateInventoryQuantity(Map<String, String> param);
 
     int getInventoryQuantity(String itemId);
 

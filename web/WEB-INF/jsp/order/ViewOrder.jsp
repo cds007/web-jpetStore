@@ -8,24 +8,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Content">
-    <ul class="messages">
-        <li>${sessionScope.message}</li>
-    </ul>
 
-    <div id="BackLink">
+<%--    <ul class="messages">--%>
+<%--        <li>${sessionScope.message}</li>--%>
+<%--    </ul>--%>
+
+<div id="BackLink">
         <a href="main">Return to Main Menu</a>
-    </div>
+</div>
 
-    <div id="Catalog">
-
-        <table>
+<div class="Order" align="center">
+        <h2><strong>${sessionScope.message}</strong></h2>
+        <table class="table-2 firstTable">
             <tr>
                 <th align="center" colspan="2">
                     Order #${sessionScope.order.orderId}
                     <fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
                 </th>
             </tr>
+            <br>
             <tr>
                 <th colspan="2">Payment Details</th>
             </tr>
@@ -41,6 +42,7 @@
                 <td>Expiry Date (MM/YYYY):</td>
                 <td><c:out value="${sessionScope.order.expiryDate}" /></td>
             </tr>
+            <br>
             <tr>
                 <th colspan="2">Billing Address</th>
             </tr>
@@ -76,6 +78,7 @@
                 <td>Country:</td>
                 <td><c:out value="${sessionScope.order.billCountry}" /></td>
             </tr>
+            <br>
             <tr>
                 <th colspan="2">Shipping Address</th>
             </tr>
@@ -118,9 +121,11 @@
             <tr>
                 <td colspan="2">Status: <c:out value="${sessionScope.order.status}" /></td>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <table>
+        </table>
+        <br>
+    <h2><strong>商品细节</strong></h2>
+
+        <table class="table-2 secondTable">
                         <tr>
                             <th>Item ID</th>
                             <th>Description</th>
@@ -138,7 +143,6 @@
                                     ${lineItem.item.attribute2}
                                     ${lineItem.item.attribute3}
                                     ${lineItem.item.attribute4}
-                                    ${lineItem.item.attribute5}
                                     ${lineItem.item.product.name}
                                 </c:if>
                                     <c:if test="${lineItem.item == null}">
@@ -151,13 +155,10 @@
                             </tr>
                         </c:forEach>
                         <tr>
-                            <th colspan="5">
+                            <td colspan="5">
                                 Total: <fmt:formatNumber value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" />
-                            </th>
+                            </td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
         </table>
     </div>
 

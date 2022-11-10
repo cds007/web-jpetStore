@@ -32,12 +32,13 @@ public class ItemDAOImpl implements ItemDAO {
 
 
     @Override
-    public void updateInventoryQuantity(Map<String, Object> param) {
+    public void updateInventoryQuantity(Map<String, String> param) {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection.prepareStatement(updateInventoryQuantityString);
             String itemId = param.keySet().iterator().next();
-            Integer increment = (Integer)param.get(itemId);
+            String increment1 =param.get("increment");
+            Integer increment = Integer.valueOf(increment1);
             pStatement.setInt(1, increment.intValue());
             pStatement.setString(2, itemId);
             pStatement.executeUpdate();
