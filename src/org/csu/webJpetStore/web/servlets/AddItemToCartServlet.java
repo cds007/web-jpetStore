@@ -5,6 +5,7 @@ import org.csu.webJpetStore.domain.Cart;
 import org.csu.webJpetStore.domain.Item;
 import org.csu.webJpetStore.domain.Product;
 import org.csu.webJpetStore.service.CatalogService;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -50,16 +51,16 @@ public class AddItemToCartServlet extends HttpServlet {
         if (cart.containsItemId(workingItemId)) {
             //已有该物品，数量加一
             cart.incrementQuantityByItemId(workingItemId);
-//            if(account != null){
-//                HttpServletRequest httpRequest= (HttpServletRequest) request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                Item item = catalogService.getItem(workingItemId);
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " " + item + "数量+1 ";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= (HttpServletRequest) req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                Item item = catalogService.getItem(workingItemId);
+                String logInfo = logService.logInfo(" ") + strBackUrl + " " + item + "数量+1 ";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
         } else {
             catalogService = new CatalogService();
             //看源码逻辑
@@ -68,15 +69,15 @@ public class AddItemToCartServlet extends HttpServlet {
             //mmd我把他数据库改了
             Item item = catalogService.getItem(workingItemId);
             cart.addItem(item, isInStock);
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 添加物品 " + item + " 到购物车";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 添加物品 " + item + " 到购物车";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
         }
         session.setAttribute("cart", cart);
         req.getRequestDispatcher(VIEW_CART).forward(req, resp);

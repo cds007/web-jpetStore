@@ -8,6 +8,7 @@ import org.csu.webJpetStore.domain.Order;
 
 /**先不用**/
 //import org.csu.webJpetStore.service.LogService;
+import org.csu.webJpetStore.service.LogService;
 import org.csu.webJpetStore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -48,15 +49,15 @@ public class ViewOrderServlet extends HttpServlet {
             //HttpSession session = request.getSession();
             Account account = (Account)session.getAttribute("account");
               /**日志相关**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + order;
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + order;
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
 
             request.getRequestDispatcher(VIEWORDER).forward(request, response);
         } else {

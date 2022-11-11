@@ -3,6 +3,7 @@ package org.csu.webJpetStore.web.servlets;
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Cart;
 import org.csu.webJpetStore.domain.Item;
+import org.csu.webJpetStore.service.LogService;
 //import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
@@ -38,30 +39,30 @@ public class RemoveItemFromCartServlet extends HttpServlet {
 
             Account account = (Account)session.getAttribute("account");
             /**日志相关**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 物品为空，不能移除";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 物品为空，不能移除";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
 
             request.getRequestDispatcher(ERROR).forward(request, response);
         }else{
 
             Account account = (Account)session.getAttribute("account");
               /**日志相关**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " " + item + " 已从购物车中移除";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " " + item + " 已从购物车中移除";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
             request.getRequestDispatcher(VIEW_CART).forward(request, response);
         }
     }

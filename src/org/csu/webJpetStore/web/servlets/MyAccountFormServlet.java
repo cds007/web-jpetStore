@@ -1,6 +1,7 @@
 package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,16 @@ public class MyAccountFormServlet extends HttpServlet {
             resp.sendRedirect("MyAccountForm");
             /*如果个人账户页面的名称不是这个还要进一步改一下*/
         }else{
+
+            if(loginAccount != null){
+                HttpServletRequest httpRequest= req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到我的账户界面";
+                logService.insertLogInfo(loginAccount.getUserid(), logInfo);
+            }
 
             req.getRequestDispatcher(MY_ACCOUNT_FORM).forward(req,resp);
         }

@@ -2,6 +2,7 @@ package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.service.AccountService;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,7 @@ public class SignonServlet extends HttpServlet {
         session.setAttribute("account",loginAccount);
         if (!validate()){
             req.setAttribute("msg",this.msg);
+
             req.getRequestDispatcher(LOGIN_FORM).forward(req,resp);
         }else{
             AccountService accountService=new AccountService();
@@ -47,6 +49,17 @@ public class SignonServlet extends HttpServlet {
                 loginAccount.setPassword(null);
 //                loginAccount.setPassword(null);
                 session.setAttribute("account",loginAccount);
+
+                if(loginAccount != null){
+                    HttpServletRequest httpRequest= req;
+                    String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                            + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                    LogService logService = new LogService();
+                    String logInfo = logService.logInfo(" ") + strBackUrl + " 成功登录";
+                    logService.insertLogInfo(loginAccount.getUserid(), logInfo);
+                }
+
                 req.getRequestDispatcher(MAIN).forward(req, resp);
                 /*这个地方登录成功会跳转到mainform中，也就是主页面，用的是dopost方法，而mainForm对应的servlet也应该可以支持dopost方法
                  * 否则就会报405的错误

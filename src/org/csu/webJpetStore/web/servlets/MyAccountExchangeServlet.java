@@ -2,6 +2,7 @@ package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.service.AccountService;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -62,7 +63,19 @@ public class MyAccountExchangeServlet extends HttpServlet {
 
         if (!validate()){
             req.setAttribute("rmsg",rmsg);
+
+            if(account != null){
+                HttpServletRequest httpRequest= req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 修改账户失败";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
+
             req.getRequestDispatcher(EXCHANGE_FORM).forward(req,resp);
+
         }else {
             Account account1=new Account();
             account1.setFirstname(this.firstName);
@@ -92,11 +105,23 @@ public class MyAccountExchangeServlet extends HttpServlet {
                 session.invalidate();
                 HttpSession session1=req.getSession();
                 session.setAttribute("loginaccount",loginAccount);
+
+                HttpServletRequest httpRequest= req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 修改账户成功，跳转到我的账户界面";
+                logService.insertLogInfo(loginAccount.getUserid(), logInfo);
+
+
                 resp.sendRedirect("MyAccountForm");
                 /*这里没有调试过，要加在一起后自己看一下*/
             }else{
                 this.rmsg="修改失败！";
                 req.setAttribute("msg",this.rmsg);
+
+
                 req.getRequestDispatcher(EXCHANGE_FORM).forward(req,resp);
             }
         }

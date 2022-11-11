@@ -2,6 +2,7 @@ package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Order;
+import org.csu.webJpetStore.service.LogService;
 
 /**日志相关**/
 //import org.csu.webJpetStore.service.LogService;
@@ -56,15 +57,15 @@ public class ShippingAddressServlet extends HttpServlet {
 
         Account account = (Account)session.getAttribute("account");
         /**日志相关**/
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 修改订单邮寄地址";
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 修改订单邮寄地址";
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
         request.getRequestDispatcher(CONFIRM_ORDER_FORM).forward(request, response);
     }

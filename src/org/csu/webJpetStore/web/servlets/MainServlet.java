@@ -1,6 +1,7 @@
 package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
+import org.csu.webJpetStore.service.LogService;
 //import org.csu.mypetstore.service.LogService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,15 +20,15 @@ public class MainServlet extends javax.servlet.http.HttpServlet {
         HttpSession session = request.getSession();
         Account account = (Account)session.getAttribute("account");
 
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到主界面";
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到主界面";
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
 
         request.getRequestDispatcher(MAIN).forward(request,response);

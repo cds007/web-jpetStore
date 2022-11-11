@@ -5,6 +5,7 @@ import org.csu.webJpetStore.domain.LineItem;
 import org.csu.webJpetStore.domain.Order;
 /**日志相关**/
 //import org.csu.webJpetStore.service.LogService;
+import org.csu.webJpetStore.service.LogService;
 import org.csu.webJpetStore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -43,17 +44,17 @@ public class ViewListOrderServlet extends HttpServlet {
 
         //HttpSession session = request.getSession();
         /**日志相关**/
-//        Account account = (Account)session.getAttribute("account");
-//
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + orderList;
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        Account account = (Account)session.getAttribute("account");
+
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + orderList;
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
         request.getRequestDispatcher(VIEWLISTORDER).forward(request, response);
     }

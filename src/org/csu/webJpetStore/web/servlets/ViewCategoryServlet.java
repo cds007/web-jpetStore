@@ -1,8 +1,10 @@
 package org.csu.webJpetStore.web.servlets;
 
+import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Category;
 import org.csu.webJpetStore.domain.Product;
 import org.csu.webJpetStore.service.CatalogService;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +38,18 @@ public class ViewCategoryServlet extends HttpServlet {
         session.setAttribute("productList", productList);
 
         /**中间还有账户相关的东西，看不太懂，先空着**/
+        //HttpSession session = request.getSession();
+        Account account = (Account)session.getAttribute("account");
+
+        if(account != null){
+            HttpServletRequest httpRequest= req;
+            String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到商品种类 " + category;
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
         req.getRequestDispatcher(VIEW_CATEGORY).forward(req, resp);
     }
 }

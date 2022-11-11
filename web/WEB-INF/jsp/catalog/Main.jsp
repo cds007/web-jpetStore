@@ -11,7 +11,7 @@
     <div class="col-2 cat" >
     <ul>
         <li>
-            <a href="#">宠物鱼</a>
+            <font color="white">宠物鱼</font>
             <div class="div1">
                 <div class="av"><img src="images/fishMain4.png" alt="锦鲤" title="锦鲤" /></div>
                 <a href="viewProduct?productId=JL-01"><font color="black" size="1"><strong>锦鲤</strong></font>></a>
@@ -27,7 +27,7 @@
             </div>
         </li>
         <li>
-            <a href="#">宠物狗</a>
+            <font color="white">宠物狗</font>
             <div class="div2">
                 <div class="av"><img src="images/DogMain.jpg" alt="金毛" title="金毛" /></div>
                 <a href="viewProduct?productId=JM-01"><font color="black" size="1"><strong>金毛</strong></font>></a>
@@ -43,7 +43,7 @@
             </div>
         </li>
         <li>
-            <a href="#">宠物猫</a>
+            <font color="white">宠物猫</font>
             <div class="div1">
                 <div class="av"><img src="images/CatMain.jpg" alt="英国短毛猫" title="英国短毛猫" /></div>
                 <a href=""><font color="black" size="1"><strong>英国短毛猫</strong></font>></a>
@@ -59,7 +59,7 @@
             </div>
         </li>
         <li>
-            <a href="#">爬行动物</a>
+            <font color="white">爬行动物</font>
             <div class="div2">
                 <div class="av"><img src="images/turtleMain.jpg" alt="巴西龟" title="巴西龟" /></div>
                 <a href=""><font color="black" size="1"><strong>巴西龟</strong></font>></a>
@@ -75,7 +75,7 @@
             </div>
         </li>
         <li>
-            <a href="#">宠物鸟</a>
+            <font color="white">宠物鸟</font>
             <div class="div1">
                 <div class="av"><img src="images/baiWenBirdMain.jpg" alt="白文鸟" title="白文鸟" /></div>
                 <a href=""><font color="black" size="1"><strong>白文鸟</strong></font>></a>

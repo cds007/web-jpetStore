@@ -2,11 +2,13 @@ package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.service.AccountService;
+import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RegisteronServlet extends HttpServlet {
@@ -85,10 +87,32 @@ public class RegisteronServlet extends HttpServlet {
             AccountService accountService=new AccountService();
             boolean result=accountService.insertAccount(account1);
             if (result==true){
+                /**日志部分**/
+                if(account1 != null){
+                    HttpServletRequest httpRequest= req;
+                    String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                            + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                    LogService logService = new LogService();
+                    String logInfo = logService.logInfo(" ") + strBackUrl + " 注册新的账户";
+                    logService.insertLogInfo(account.getUserid(), logInfo);
+                }
+
                 resp.sendRedirect("loginForm");
             }else{
                 this.rmsg="注册失败！";
                 req.setAttribute("msg",this.rmsg);
+
+                if(account1 != null){
+                    HttpServletRequest httpRequest= req;
+                    String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                            + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                    LogService logService = new LogService();
+                    String logInfo = logService.logInfo(" ") + strBackUrl + " 注册失败";
+                    logService.insertLogInfo(account.getUserid(), logInfo);
+                }
+
                 req.getRequestDispatcher(REGISTER_FORM).forward(req,resp);
             }
         }

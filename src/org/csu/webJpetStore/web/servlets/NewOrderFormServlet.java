@@ -3,6 +3,7 @@ package org.csu.webJpetStore.web.servlets;
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Cart;
 import org.csu.webJpetStore.domain.Order;
+import org.csu.webJpetStore.service.LogService;
 /**以后用**/
 //import org.csu.webJpetStore.service.LogService;
 
@@ -54,17 +55,17 @@ public class NewOrderFormServlet extends HttpServlet {
             order.initOrder(account, cart);
             session.setAttribute("order", order);
 
-//            Account account = (Account)session.getAttribute("account");
+           Account account = (Account)session.getAttribute("account");
             /**日志相关信息**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到新订单页面";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 跳转到新订单页面";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
 
             request.getRequestDispatcher(NEW_ORDER).forward(request, response);
         }else{

@@ -2,6 +2,7 @@ package org.csu.webJpetStore.web.servlets;
 
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Cart;
+import org.csu.webJpetStore.service.LogService;
 //import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
@@ -28,15 +29,15 @@ public class ViewCartServlet extends HttpServlet {
         }
         Account account = (Account)session.getAttribute("account");
         //日志相关
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看购物车 " + cart;
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看购物车 " + cart;
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
         request.getRequestDispatcher(VIEW_CART).forward(request, response);
     }

@@ -3,6 +3,7 @@ package org.csu.webJpetStore.web.servlets;
 import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Product;
 import org.csu.webJpetStore.service.CatalogService;
+import org.csu.webJpetStore.service.LogService;
 //import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
@@ -41,15 +42,15 @@ public class SearchProductServlet extends HttpServlet {
 
         Account account = (Account)session.getAttribute("account");
 
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查找商品" + "  " + productList;
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 查找商品" + "  " + productList;
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
 
         //跳转页面

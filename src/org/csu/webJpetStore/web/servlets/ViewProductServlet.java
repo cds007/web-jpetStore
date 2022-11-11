@@ -4,6 +4,7 @@ import org.csu.webJpetStore.domain.Account;
 import org.csu.webJpetStore.domain.Item;
 import org.csu.webJpetStore.domain.Product;
 import org.csu.webJpetStore.service.CatalogService;
+import org.csu.webJpetStore.service.LogService;
 
 
 import javax.servlet.ServletException;
@@ -33,6 +34,17 @@ public class ViewProductServlet extends HttpServlet {
         session.setAttribute("itemList", itemList);
 
         /**中间还有账户相关的东西，看不太懂，先空着**/
+        Account account = (Account)session.getAttribute("account");
+
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看产品 " + product;
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
         request.getRequestDispatcher(VIEW_PRODUCT).forward(request, response);
     }

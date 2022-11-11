@@ -6,6 +6,7 @@ import org.csu.webJpetStore.domain.Order;
 
 /**暂时不用**/
 //import org.csu.webJpetStore.service.LogService;
+import org.csu.webJpetStore.service.LogService;
 import org.csu.webJpetStore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -38,30 +39,30 @@ public class ConfirmOrderFormServlet extends HttpServlet {
         if (shippingAddressRequired == null){
             /**不用更改收获地址**/
             /**日志相关**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 确认生成订单 ";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 确认生成订单 ";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
 
             request.getRequestDispatcher(CONFIRM_ORDER_FORM).forward(request, response);
         }
         else{
             shippingAddressRequired = null;
               /**日志相关**/
-//            if(account != null){
-//                HttpServletRequest httpRequest= request;
-//                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 更改收货地址";
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-//            }
+            if(account != null){
+                HttpServletRequest httpRequest= request;
+                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                LogService logService = new LogService();
+                String logInfo = logService.logInfo(" ") + strBackUrl + " 更改收货地址";
+                logService.insertLogInfo(account.getUserid(), logInfo);
+            }
             request.getRequestDispatcher(SHIPPINGFORM).forward(request, response);
         }
 

@@ -5,6 +5,7 @@ import org.csu.webJpetStore.domain.Cart;
 import org.csu.webJpetStore.domain.CartItem;
 import org.csu.webJpetStore.domain.Item;
 import org.csu.webJpetStore.service.CatalogService;
+import org.csu.webJpetStore.service.LogService;
 //import org.csu.webJpetStore.service.LogService;
 
 import javax.servlet.ServletException;
@@ -61,15 +62,15 @@ public class UpdateCartQuantitiesServlet extends HttpServlet {
         //HttpSession session = request.getSession();
         Account account = (Account)session.getAttribute("account");
        /**日志先不管**/
-//        if(account != null){
-//            HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-//                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 更新购物车商品数量";
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-//        }
+        if(account != null){
+            HttpServletRequest httpRequest= request;
+            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+            LogService logService = new LogService();
+            String logInfo = logService.logInfo(" ") + strBackUrl + " 更新购物车商品数量";
+            logService.insertLogInfo(account.getUserid(), logInfo);
+        }
 
         request.getRequestDispatcher(VIEW_CART).forward(request, response);
     }
