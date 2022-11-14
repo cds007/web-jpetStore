@@ -37,6 +37,11 @@ public class ConfirmOrderFormServlet extends HttpServlet {
         Account account = (Account)session.getAttribute("account");
 
         if (shippingAddressRequired == null){
+            orderService = new OrderService();
+            //这里插入订单时，订单号会递增生成
+            //这里我要改一下逻辑了，没有办法，我得把这句话调到确认支付那里了。
+            orderService.insertOrder(order);
+            session.setAttribute("order", order);
             /**不用更改收获地址**/
             /**日志相关**/
             if(account != null){

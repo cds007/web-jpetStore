@@ -51,7 +51,7 @@ public class ShippingAddressServlet extends HttpServlet {
         order.setShipCity(shipCity);
         order.setShipState(shipState);
         order.setShipZip(shipZip);
-        order.setCourier(shipCountry);
+        order.setShipCountry(shipCountry);
 
         session.setAttribute("order", order);
 

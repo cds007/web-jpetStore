@@ -22,104 +22,105 @@
         <table class="table-2 firstTable">
             <tr>
                 <th align="center" colspan="2">
-                    Order #${sessionScope.order.orderId}
+                    订单 #${sessionScope.order.orderId}
                     <fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
                 </th>
             </tr>
             <br>
             <tr>
-                <th colspan="2">Payment Details</th>
+                <th colspan="2">支付细节</th>
             </tr>
             <tr>
-                <td>Card Type:</td>
-                <td><c:out value="${sessionScope.order.cardType}" /></td>
+                <td>支付方式:</td>
+<%--                <td><c:out value="${sessionScope.order.cardType}" /></td>--%>
+                <td>支付宝支付</td>
             </tr>
-            <tr>
-                <td>Card Number:</td>
-                <td><c:out value="${sessionScope.order.creditCard}" /> * Fake number!</td>
-            </tr>
-            <tr>
-                <td>Expiry Date (MM/YYYY):</td>
-                <td><c:out value="${sessionScope.order.expiryDate}" /></td>
-            </tr>
+<%--            <tr>--%>
+<%--                <td>Card Number:</td>--%>
+<%--                <td><c:out value="${sessionScope.order.creditCard}" /> * Fake number!</td>--%>
+<%--            </tr>--%>
+<%--            <tr>--%>
+<%--                <td>Expiry Date (MM/YYYY):</td>--%>
+<%--                <td><c:out value="${sessionScope.order.expiryDate}" /></td>--%>
+<%--            </tr>--%>
             <br>
             <tr>
-                <th colspan="2">Billing Address</th>
+                <th colspan="2">账单细节</th>
             </tr>
             <tr>
-                <td>First name:</td>
+                <td>姓:</td>
                 <td><c:out value="${sessionScope.order.billToFirstName}" /></td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <td>名:</td>
                 <td><c:out value="${sessionScope.order.billToLastName}" /></td>
             </tr>
             <tr>
-                <td>Address 1:</td>
+                <td>地址1:</td>
                 <td><c:out value="${sessionScope.order.billAddress1}" /></td>
             </tr>
             <tr>
-                <td>Address 2:</td>
+                <td>地址2:</td>
                 <td><c:out value="${sessionScope.order.billAddress2}" /></td>
             </tr>
             <tr>
-                <td>City:</td>
+                <td>城市:</td>
                 <td><c:out value="${sessionScope.order.billCity}" /></td>
             </tr>
             <tr>
-                <td>State:</td>
+                <td>省份:</td>
                 <td><c:out value="${sessionScope.order.billState}" /></td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <td>邮政编码:</td>
                 <td><c:out value="${sessionScope.order.billZip}" /></td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <td>国家:</td>
                 <td><c:out value="${sessionScope.order.billCountry}" /></td>
             </tr>
             <br>
             <tr>
-                <th colspan="2">Shipping Address</th>
+                <th colspan="2">寄送地址</th>
             </tr>
             <tr>
-                <td>First name:</td>
+                <td>姓:</td>
                 <td><c:out value="${sessionScope.order.shipToFirstName}" /></td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <td>名:</td>
                 <td><c:out value="${sessionScope.order.shipToLastName}" /></td>
             </tr>
             <tr>
-                <td>Address 1:</td>
+                <td>地址1:</td>
                 <td><c:out value="${sessionScope.order.shipAddress1}" /></td>
             </tr>
             <tr>
-                <td>Address 2:</td>
+                <td>地址2:</td>
                 <td><c:out value="${sessionScope.order.shipAddress2}" /></td>
             </tr>
             <tr>
-                <td>City:</td>
+                <td>城市:</td>
                 <td><c:out value="${sessionScope.order.shipCity}" /></td>
             </tr>
             <tr>
-                <td>State:</td>
+                <td>省份:</td>
                 <td><c:out value="${sessionScope.order.shipState}" /></td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <td>邮政编码:</td>
                 <td><c:out value="${sessionScope.order.shipZip}" /></td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <td>国家:</td>
                 <td><c:out value="${sessionScope.order.shipCountry}" /></td>
             </tr>
             <tr>
-                <td>Courier:</td>
+                <td>邮差:</td>
                 <td><c:out value="${sessionScope.order.courier}" /></td>
             </tr>
             <tr>
-                <td colspan="2">Status: <c:out value="${sessionScope.order.status}" /></td>
+                <td colspan="2">状态: <c:out value="${sessionScope.order.status}" /></td>
             </tr>
         </table>
         <br>
@@ -127,11 +128,11 @@
 
         <table class="table-2 secondTable">
                         <tr>
-                            <th>Item ID</th>
-                            <th>Description</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total Cost</th>
+                            <th>商品ID</th>
+                            <th>商品描述</th>
+                            <th>数量</th>
+                            <th>价格</th>
+<%--                            <th>总价</th>--%>
                         </tr>
                         <c:forEach var="lineItem" items="${sessionScope.order.lineItems}">
                             <tr>
@@ -156,7 +157,7 @@
                         </c:forEach>
                         <tr>
                             <td colspan="5">
-                                Total: <fmt:formatNumber value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" />
+                                总价: <fmt:formatNumber value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" />
                             </td>
                         </tr>
         </table>

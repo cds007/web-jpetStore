@@ -13,9 +13,11 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="images/chongwu.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/TopButtomMain.css">
     <link rel="stylesheet" href="css/order.css">
     <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e2c1b76463.js" crossorigin="anonymous"></script>
     <title>宠物商店哦哦哦</title>
     <style>
     </style>
@@ -29,13 +31,13 @@
         <div class="right">
             <c:if test="${sessionScope.account!=null}">
                 <a href="viewListOrder?name=${sessionScope.account.name}" class="item">我的订单</a>
-                <a href="" class="item">收藏夹</a>
-                <a href="#" class="item">退出登录</a>
-                <a href="#" class="item">个人主页</a>
+<%--                <a href="" class="item">收藏夹</a>--%>
+                <a href="signOff" class="item">退出登录</a>
+                <a href="MyAccountForm" class="item">个人主页</a>
             </c:if>
             <c:if test="${sessionScope.account==null}">
                 <a href="loginForm" class="item">我的订单</a>
-                <a href="" class="item">收藏夹</a>
+<%--                <a href="" class="item">收藏夹</a>--%>
                 <a href="register" class="item">注册</a>
                 <a href="loginForm" class="item">登录</a>
             </c:if>

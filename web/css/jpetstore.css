@@ -302,11 +302,14 @@ body>#Banner {
 }
 
 #BackLink{
-    padding: 1ex;
-    float: right;
-    border-width: .1ex 0ex .1ex 0px;
-    border-style: solid;
-    border-color: #000;
+    background-color:dodgerblue;
+    color:white;
+    width: 300px;
+    height: 47px;
+    border:0;
+    font-size: 16px;
+    border-radius: 30px;
+    align-content: center;
 }
 
 #Cart{

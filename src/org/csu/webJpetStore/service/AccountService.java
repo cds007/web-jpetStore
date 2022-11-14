@@ -1,7 +1,9 @@
 package org.csu.webJpetStore.service;
 
 import org.csu.webJpetStore.domain.Account;
+import org.csu.webJpetStore.persistence.BannerDataDAO;
 import org.csu.webJpetStore.persistence.Impl.AccountDao;
+import org.csu.webJpetStore.persistence.Impl.BannerDataDAOImpl;
 
 public class AccountService {
     public AccountService(){
@@ -23,6 +25,11 @@ public class AccountService {
         AccountDao accountDao=new AccountDao();
         Account account1=accountDao.UpdateAccount1(account, account2);
         return account;
+    }
+
+    public String searchBannerName(String favcategory) {
+        BannerDataDAO bannerDataDAO = new BannerDataDAOImpl() ;
+        return bannerDataDAO.SearchBannerNameByFavcategory( favcategory);
     }
 
 }

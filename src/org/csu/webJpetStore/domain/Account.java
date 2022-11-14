@@ -31,6 +31,7 @@ public class Account implements Serializable {
     private boolean mylistopt;
     private boolean banneropt;
     private String bannername;
+
     public Account(){
     }
 

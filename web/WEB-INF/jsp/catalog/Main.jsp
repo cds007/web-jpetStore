@@ -46,48 +46,48 @@
             <font color="white">宠物猫</font>
             <div class="div1">
                 <div class="av"><img src="images/CatMain.jpg" alt="英国短毛猫" title="英国短毛猫" /></div>
-                <a href=""><font color="black" size="1"><strong>英国短毛猫</strong></font>></a>
+                <a href="viewProduct?productId=YGDMM-01"><font color="black" size="1"><strong>英国短毛猫</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/CatMain2.png" alt="布偶猫" title="布偶猫" /></div>
-                <a href=""><font color="black" size="1"><strong>布偶猫</strong></font>></a>
+                <a href="viewProduct?productId=BOM-02"><font color="black" size="1"><strong>布偶猫</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/CatMain3.jpg" alt="俄罗斯蓝猫" title="俄罗斯蓝猫" /></div>
-                <a href=""><font color="black" size="1"><strong>俄罗斯蓝猫</strong></font>></a>
+                <a href="viewProduct?productId=ELSLM-03"><font color="black" size="1"><strong>俄罗斯蓝猫</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/CatMain4.jpeg" alt="中华田园猫" title="中华田园猫" /></div>
-                <a href=""><font color="black" size="1"><strong>中华田园猫</strong></font>></a>
+                <a href="viewProduct?productId=ZHTYM-04"><font color="black" size="1"><strong>中华田园猫</strong></font>></a>
             </div>
         </li>
         <li>
             <font color="white">爬行动物</font>
             <div class="div2">
                 <div class="av"><img src="images/turtleMain.jpg" alt="巴西龟" title="巴西龟" /></div>
-                <a href=""><font color="black" size="1"><strong>巴西龟</strong></font>></a>
+                <a href="viewProduct?productId=BXG-01"><font color="black" size="1"><strong>巴西龟</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/turtleMain2.jpg" alt="圆澳龟" title="圆澳龟" /></div>
-                <a href=""><font color="black" size="1"><strong>圆澳龟</strong></font>></a>
+                <a href="viewProduct?productId=YOG-02"><font color="black" size="1"><strong>圆澳龟</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/spiderMain.jpg" alt="小蜘蛛" title="小蜘蛛" /></div>
-                <a href=""><font color="black" size="1"><strong>小蜘蛛</strong></font>></a>
+                <a href="viewProduct?productId=XZZ-03"><font color="black" size="1"><strong>小蜘蛛</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/LizardMain.jpeg" alt="守宫" title="守宫" /></div>
-                <a href=""><font color="black" size="1"><strong>守宫</strong></font>></a>
+                <a href="viewProduct?productId=SG-04"><font color="black" size="1"><strong>守宫</strong></font>></a>
             </div>
         </li>
         <li>
             <font color="white">宠物鸟</font>
             <div class="div1">
                 <div class="av"><img src="images/baiWenBirdMain.jpg" alt="白文鸟" title="白文鸟" /></div>
-                <a href=""><font color="black" size="1"><strong>白文鸟</strong></font>></a>
+                <a href="viewProduct?productId=BWN-01"><font color="black" size="1"><strong>白文鸟</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/fuRongBirdMain.png" alt="芙蓉鸟" title="芙蓉鸟" /></div>
-                <a href=""><font color="black" size="1"><strong>芙蓉鸟</strong></font>></a>
+                <a href="viewProduct?productId=FRN-02"><font color="black" size="1"><strong>芙蓉鸟</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/owlMain.jpeg" alt="猫头鹰" title="猫头鹰" /></div>
-                <a href=""><font color="black" size="1"><strong>猫头鹰</strong></font>></a>
+                <a href="viewProduct?productId=MTY-03"><font color="black" size="1"><strong>猫头鹰</strong></font>></a>
                 <br>
                 <div class="av"><img src="images/parrotMain.jpg" alt="牡丹鹦鹉" title="牡丹鹦鹉" /></div>
-                <a href=""><font color="black" size="1"><strong>牡丹鹦鹉</strong></font>></a>
+                <a href="viewProduct?productId=MDYW-04"><font color="black" size="1"><strong>牡丹鹦鹉</strong></font>></a>
             </div>
         </li>
     </ul>
@@ -148,22 +148,22 @@
         <div class="content">
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/DogMain.jpg" alt="金毛" title="金毛" height="300"/></a>
+                    <a href="viewProduct?productId=JM-01"><img src="images/DogMain.jpg" alt="金毛" title="金毛" height="300"/></a>
                 </div>
             </div>
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/DogMain2.jpg" alt="哈士奇" title="哈士奇" height="300"/></a>
+                    <a href="viewProduct?productId=HSQ-02"><img src="images/DogMain2.jpg" alt="哈士奇" title="哈士奇" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/DogMain3.jpg" alt="柴犬" title="柴犬" height="300"/></a>
+                    <a href="viewProduct?productId=CQ-03"><img src="images/DogMain3.jpg" alt="柴犬" title="柴犬" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/DogMain4.jpg" alt="拉布拉多" title="拉布拉多" height="300"/></a>
+                    <a href="viewProduct?productId=LBLD-04"><img src="images/DogMain4.jpg" alt="拉布拉多" title="拉布拉多" height="300"/></a>
                 </div>
             </div>
         </div>
@@ -173,22 +173,22 @@
         <div class="content">
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/CatMain.jpg" alt="英国短毛猫" title="英国短毛猫" height="300"/></a>
+                    <a href="viewProduct?productId=ZHTYM-04"><img src="images/CatMain.jpg" alt="英国短毛猫" title="英国短毛猫" height="300"/></a>
                 </div>
             </div>
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/CatMain2.png" alt="布偶猫" title="布偶猫" height="300"/></a>
+                    <a href="viewProduct?productId=YGDMM-01"><img src="images/CatMain2.png" alt="布偶猫" title="布偶猫" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/CatMain3.jpg" alt="俄罗斯蓝猫" title="俄罗斯蓝猫" height="300"/></a>
+                    <a href="viewProduct?productId=BOM-02"><img src="images/CatMain3.jpg" alt="俄罗斯蓝猫" title="俄罗斯蓝猫" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/CatMain4.jpeg" alt="中华田园猫" title="中华田园猫" height="300"/></a>
+                    <a href="viewProduct?productId=ELSLM-03"><img src="images/CatMain4.jpeg" alt="中华田园猫" title="中华田园猫" height="300"/></a>
                 </div>
             </div>
         </div>
@@ -198,22 +198,22 @@
         <div class="content">
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/turtleMain.jpg" alt="巴西龟" title="巴西龟" height="300"/></a>
+                    <a href="viewProduct?productId=BXG-01"><img src="images/turtleMain.jpg" alt="巴西龟" title="巴西龟" height="300"/></a>
                 </div>
             </div>
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/turtleMain2.jpg" alt="圆澳龟" title="圆澳龟" height="300"/></a>
+                    <a href="viewProduct?productId=YOG-02"><img src="images/turtleMain2.jpg" alt="圆澳龟" title="圆澳龟" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/spiderMain.jpg" alt="小蜘蛛" title="小蜘蛛" height="300"/></a>
+                    <a href="viewProduct?productId=XZZ-03"><img src="images/spiderMain.jpg" alt="小蜘蛛" title="小蜘蛛" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/LizardMain.jpeg" alt="守宫" title="守宫" height="300"/></a>
+                    <a href="viewProduct?productId=SG-04"><img src="images/LizardMain.jpeg" alt="守宫" title="守宫" height="300"/></a>
                 </div>
             </div>
         </div>
@@ -223,24 +223,43 @@
         <div class="content">
             <div class="col-3 item">
                 <div class="card">
-                    <a href="viewProduct?productId=AV-CB-01"><img src="images/baiWenBirdMain.jpg" alt="白文鸟" title="白文鸟" height="300"/></a>
+                    <a href="viewProduct?productId=BWN-01"><img src="images/baiWenBirdMain.jpg" alt="白文鸟" title="白文鸟" height="300"/></a>
                 </div>
             </div>
             <div class="col-3 item">
                 <div class="card">
-                    <a href=""><img src="images/fuRongBirdMain.png" alt="芙蓉鸟" title="芙蓉鸟" height="300"/></a>
+                    <a href="viewProduct?productId=FRN-02"><img src="images/fuRongBirdMain.png" alt="芙蓉鸟" title="芙蓉鸟" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/owlMain.jpeg" alt="猫头鹰" title="猫头鹰" height="300"/></a>
+                    <a href="viewProduct?productId=MTY-03"><img src="images/owlMain.jpeg" alt="猫头鹰" title="猫头鹰" height="300"/></a>
                 </div>
             </div>
             <div class="col-2 item">
                 <div class="card">
-                    <a href=""><img src="images/parrotMain.jpg" alt="牡丹鹦鹉" title="牡丹鹦鹉" height="300"/></a>
+                    <a href="viewProduct?productId=MDYW-04"><img src="images/parrotMain.jpg" alt="牡丹鹦鹉" title="牡丹鹦鹉" height="300"/></a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+<c:if test="${sessionScope.account!=null}">
+    <div class="container clearf">
+    <div class="cat-promote">
+    <div class="title">为您推荐</div>
+
+    <div class="col-2 item" >
+    ${sessionScope.account.bannername}
+    <h3>${sessionScope.account.userid}，欢迎来到宠物商店！</h3>
+</c:if>
+<c:if test="${sessionScope.account==null}">
+    <h3>您还没有登录哦~</h3>
+</c:if>
+
+</div>
+</div>
+</div>
 <%@include file="../common/IncludeBottom.jsp"%>

@@ -37,9 +37,11 @@ public class ViewOrderServlet extends HttpServlet {
         cart = (Cart) session.getAttribute("cart");
 
         if (order != null) {
-            orderService = new OrderService();
-            orderService.insertOrder(order);
-            session.setAttribute("order", order);
+//            orderService = new OrderService();
+//            //这里插入订单时，订单号会递增生成
+//            //这里我要改一下逻辑了，没有办法，我得把这句话调到确认支付那里了。
+//            orderService.insertOrder(order);
+//            session.setAttribute("order", order);
             //清空购物车
             cart = null;
             session.setAttribute("cart", cart);

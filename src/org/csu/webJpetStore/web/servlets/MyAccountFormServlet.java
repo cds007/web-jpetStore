@@ -14,13 +14,15 @@ public class MyAccountFormServlet extends HttpServlet {
     private static final String MY_ACCOUNT_FORM ="/WEB-INF/jsp/account/MyAccountForm.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+
         HttpSession httpSession=req.getSession();
-        Account loginAccount=(Account) httpSession.getAttribute("loginAccount");
+        Account loginAccount=(Account) httpSession.getAttribute("account");
         if (loginAccount==null){
-            resp.sendRedirect("MyAccountForm");
+            req.getRequestDispatcher(MY_ACCOUNT_FORM).forward(req,resp);
             /*如果个人账户页面的名称不是这个还要进一步改一下*/
         }else{
-
+            System.out.println("get to myaccountform");
             if(loginAccount != null){
                 HttpServletRequest httpRequest= req;
                 String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()

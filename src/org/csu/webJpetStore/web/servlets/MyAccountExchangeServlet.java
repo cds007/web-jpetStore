@@ -11,6 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import org.csu.webJpetStore.domain.Account;
+import org.csu.webJpetStore.service.AccountService;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
 public class MyAccountExchangeServlet extends HttpServlet {
     private String firstName;
     private  String lastName;
@@ -36,7 +46,6 @@ public class MyAccountExchangeServlet extends HttpServlet {
     private  String exchange;
     private  String exchange2;
     private static final String EXCHANGE_FORM ="/WEB-INF/jsp/account/MyAccountForm.jsp";
-    /*如果文件的写法不一样，那就要把里面的路径全部改掉*/
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,7 +72,6 @@ public class MyAccountExchangeServlet extends HttpServlet {
 
         if (!validate()){
             req.setAttribute("rmsg",rmsg);
-
             if(account != null){
                 HttpServletRequest httpRequest= req;
                 String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
@@ -75,14 +83,19 @@ public class MyAccountExchangeServlet extends HttpServlet {
             }
 
             req.getRequestDispatcher(EXCHANGE_FORM).forward(req,resp);
-
         }else {
             Account account1=new Account();
             account1.setFirstname(this.firstName);
             account1.setLastname(this.lastName);
             account1.setEmail(this.email);
             account1.setPhone(this.phone);
-            account1.setPassword(this.password);
+            if (this.password != null ){
+                account1.setPassword(this.password);
+            }else {
+                HttpSession httpSession=req.getSession();
+                Account loginAccount=(Account) httpSession.getAttribute("account");
+                account1.setPassword(loginAccount.getPassword());
+            }
             account1.setUserid(this.name);
             account1.setName(this.name);
             account1.setLangpref(this.languagePreference);
@@ -98,42 +111,34 @@ public class MyAccountExchangeServlet extends HttpServlet {
             account1.setBanneropt(this.bannerOption);
             account1.setBannername("0");
             AccountService accountService=new AccountService();
-            HttpSession session=req.getSession();
-            Account account2=(Account) session.getAttribute("loginaccount");
-            Account loginAccount=accountService.updateAccount(account1,account2);
-            if (loginAccount!=null){
-                session.invalidate();
-                HttpSession session1=req.getSession();
-                session.setAttribute("loginaccount",loginAccount);
-
+            HttpSession httpSession=req.getSession();
+            Account loginAccount0=(Account) httpSession.getAttribute("account");
+            Account loginAccount1=accountService.updateAccount(account1,loginAccount0);
+            if (loginAccount1!=null){
+                httpSession.setAttribute("account",loginAccount1);
                 HttpServletRequest httpRequest= req;
                 String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
                         + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
 
                 LogService logService = new LogService();
                 String logInfo = logService.logInfo(" ") + strBackUrl + " 修改账户成功，跳转到我的账户界面";
-                logService.insertLogInfo(loginAccount.getUserid(), logInfo);
-
-
+                logService.insertLogInfo(account.getUserid(), logInfo);
                 resp.sendRedirect("MyAccountForm");
-                /*这里没有调试过，要加在一起后自己看一下*/
             }else{
                 this.rmsg="修改失败！";
                 req.setAttribute("msg",this.rmsg);
-
-
                 req.getRequestDispatcher(EXCHANGE_FORM).forward(req,resp);
             }
         }
     }
     private boolean validate(){
         if (this.password==null || this.password=="") {
-            this.rmsg = "输入的密码不可以为空！";
-            return false;
-        }
-        if (this.password2==null || this.password2=="") {
-            this.rmsg = "输入的重复密码不能为空！";
-            return false;
+
+        }else {
+            if (this.password2 == null || this.password2 == "") {
+                this.rmsg = "输入的重复密码不能为空！";
+                return false;
+            }
         }
 
 /*        if (this.password == this.password2){
@@ -175,11 +180,12 @@ public class MyAccountExchangeServlet extends HttpServlet {
             this.rmsg="输入的languagePreference不能为空！";
             return false;
         }
-        if (this.exchange=="1"){
-            this.listOption=true;
-        }else {
-            this.listOption=false;
-        }
+//        if (this.exchange=="1"){
+//            this.listOption=true;
+//        }else {
+//            this.listOption=false;
+//        }
+        this.listOption=false;
         if (this.exchange2=="1"){
             this.bannerOption=true;
         }else {

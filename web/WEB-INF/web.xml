@@ -214,7 +214,66 @@
         <url-pattern>/MyAccountExchange</url-pattern>
     </servlet-mapping>
 
+    <!--登出账户-->
+    <servlet>
+        <servlet-name>SignOffServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.SignoffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOffServlet</servlet-name>
+        <url-pattern>/signOff</url-pattern>
+    </servlet-mapping>
 
+    <!--验证码-->
+    <servlet>
+        <servlet-name>CodeServlet</servlet-name>
+        <servlet-class>org.csu.webJpetStore.web.servlets.CodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CodeServlet</servlet-name>
+        <url-pattern>/code</url-pattern>
+    </servlet-mapping>
 
+    <!--    模拟支付宝交易的Servlet-->
+    <!--    跳转到付款的Servlet-->
+    
+    <servlet>
+        <servlet-name>payFormServlet</servlet-name>
+        <servlet-class>com.alipay.config.alipay.servlets.payFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>payFormServlet</servlet-name>
+        <url-pattern>/payForm</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AliPayTradePagePayServlet</servlet-name>
+        <servlet-class>com.alipay.config.alipay.servlets.alipayTradePagePayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AliPayTradePagePayServlet</servlet-name>
+        <url-pattern>/AliPayTradePagePay</url-pattern>
+    </servlet-mapping>
+    
+    <!--返回页面的Servlet-->
+    <servlet>
+        <servlet-name>returnUrlServlet</servlet-name>
+        <servlet-class>com.alipay.config.alipay.servlets.returnUrlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>returnUrlServlet</servlet-name>
+        <url-pattern>/returnUrl</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--服务器异步通知页面路径-->
+    <servlet>
+        <servlet-name>notifyUrlServlet</servlet-name>
+        <servlet-class>com.alipay.config.alipay.servlets.notifyUrlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>notifyUrlServlet</servlet-name>
+        <url-pattern>/notifyUrl</url-pattern>
+    </servlet-mapping>
 </web-app>
 

@@ -14,92 +14,94 @@
             <!--表头-->
             <thead>
             <tr>
-                <th colspan=2 scope="col">Payment Details</th>
+                <th colspan=2 scope="col">支付细节</th>
                 <!-- <th scope="col">Division</th>
                 <th scope="col">Suggestions</th> -->
             </tr>
             </thead>
             <!--表尾-->
-            <tfoot>
-            <tr>
-                <td colspan="4">IE 6 users won't see the transparent background if the hack is not applied</td>
-            </tr>
-            </tfoot>
+<%--            <tfoot>--%>
+<%--            <tr>--%>
+<%--                <td colspan="4">IE 6 users won't see the transparent background if the hack is not applied</td>--%>
+<%--            </tr>--%>
+<%--            </tfoot>--%>
             <!--表格-->
             <tbody>
             <tr>
-                <td>Card Type:</td>
+                <td>支付方式:</td>
+<%--                <td><img src="images/zhifubao.ico" height="10px" width="10px"></td>--%>
                 <td>
                     <select>
-                        <option value="Visa" selected="selected">Visa</option>
-                        <option value="MasterCard">MasterCard</option>
-                        <option value="American Express">American Express</option>
+<%--                        <option value="Visa" selected="selected">Visa</option>--%>
+<%--                        <option value="MasterCard">MasterCard</option>--%>
+<%--                        <option value="American Express">American Express</option>--%>
+                        <option value="ZhiFuBao">支付宝</option>
                     </select>
                 </td>
             </tr>
+<%--            <tr>--%>
+<%--                <td>Card Number:</td>--%>
+<%--                <td>--%>
+<%--                    <input type="text" name="creditCard" value="999999999999">* Use a fake number!--%>
+<%--                </td>--%>
+<%--            </tr>--%>
+<%--            <tr>--%>
+<%--                <td>Expiry Date (MM/YYYY):</td>--%>
+<%--                <td>--%>
+<%--                    <input type="text" name="expiryDate" value="12/03"/>--%>
+<%--                </td>--%>
+<%--            </tr>--%>
+<%--            <thead>--%>
             <tr>
-                <td>Card Number:</td>
-                <td>
-                    <input type="text" name="creditCard" value="999999999999">* Use a fake number!
-                </td>
-            </tr>
-            <tr>
-                <td>Expiry Date (MM/YYYY):</td>
-                <td>
-                    <input type="text" name="expiryDate" value="12/03"/>
-                </td>
-            </tr>
-            <thead>
-            <tr>
-                <th colspan=2 scope="col">Billing Address</th>
+                <th colspan=2 scope="col">账单细节</th>
                 <!-- <th scope="col">Division</th>
                 <th scope="col">Suggestions</th> -->
             </tr>
             </thead>
             <tr>
-                <td>First name:</td>
+                <td>姓:</td>
                 <td>
                     <input type="text" name="billToFirstName" value="${sessionScope.order.billToFirstName}" />
                 </td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <td>名:</td>
                 <td>
                     <input type="text" name="billToLastName" value="${sessionScope.order.billToLastName}" />
                 </td>
             </tr>
             <tr>
-                <td>Address 1:</td>
+                <td>地址1:</td>
                 <td>
                     <input type="text" size="40" name="billAddress1" value="${sessionScope.order.billAddress1}" />
                 </td>
             </tr>
             <tr>
-                <td>Address 2:</td>
+                <td>地址2:</td>
                 <td>
                     <input type="text" size="40" name="billAddress2" value="${sessionScope.order.billAddress2}" />
                 </td>
             </tr>
             <tr>
-                <td>City:</td>
+                <td>城市:</td>
                 <td>
                     <input type="text" name="billCity" value="${sessionScope.order.billCity}" />
                 </td>
             </tr>
             <tr>
-                <td>State:</td>
+                <td>省份:</td>
                 <td>
                     <input type="text" size="4" name="billState" value="${sessionScope.order.billState}" />
                 </td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <td>邮政编码:</td>
                 <td>
                     <input type="text" size="10" name="billZip" value="${sessionScope.order.billZip}" />
                 </td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <td>国家:</td>
                 <td>
                     <input type="text" size="15" name="billCountry" value="${sessionScope.order.billCountry}" />
                 </td>
@@ -108,7 +110,7 @@
             <tr>
                 <td colspan=2>
                     <input type="checkbox" name="shippingAddressRequired"/>
-                    Ship to different address...
+                    更改寄送地址...
                 </td>
             </tr>
             </tbody>

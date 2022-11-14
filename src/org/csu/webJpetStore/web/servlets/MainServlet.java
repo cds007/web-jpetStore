@@ -19,8 +19,9 @@ public class MainServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         HttpSession session = request.getSession();
         Account account = (Account)session.getAttribute("account");
-
+        System.out.println("tiao zhuan dao zhu jie mian");
         if(account != null){
+            System.out.println("tiao zhuan dao zhu jie mian2");
             HttpServletRequest httpRequest= request;
             String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
                     + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());

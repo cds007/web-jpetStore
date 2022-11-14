@@ -59,64 +59,85 @@ public class RegisteronServlet extends HttpServlet {
         this.exchange=req.getParameter("listOption");
         this.exchange2=req.getParameter("bannerOption");
 
+        HttpSession session=req.getSession();
+        //获得输入的验证码值
+        String value1=req.getParameter("code");
+        //获取图片的验证码
+        String value2=(String)session.getAttribute("checkCode");
+        //比较两个值
+        boolean isEqual=false;
+//        if(value2.equalsIgnoreCase(value1)){
+//            isEqual=true;
+//        }
+         isEqual=true;
 
         if (!validate()){
             req.setAttribute("rmsg",rmsg);
             req.getRequestDispatcher(REGISTER_FORM).forward(req,resp);
         }else {
-            Account account1=new Account();
-            account1.setFirstname(this.firstName);
-            account1.setLastname(this.lastName);
-            account1.setEmail(this.email);
-            account1.setPhone(this.phone);
-            account1.setPassword(this.password);
-            account1.setUserid(this.name);
-            account1.setName(this.name);
-            account1.setLangpref(this.languagePreference);
-            account1.setAddr1(this.address1);
-            account1.setAddr2(this.address2);
-            account1.setCity(this.city);
-            account1.setCountry(this.country);
-            account1.setState(this.state);
-            account1.setStatus(this.status);
-            account1.setZip(this.zip);
-            account1.setFavcategory(this.favouriteCategoryId);
-            account1.setMylistopt(this.listOption);
-            account1.setBanneropt(this.bannerOption);
-            account1.setBannername("0");
-            AccountService accountService=new AccountService();
-            boolean result=accountService.insertAccount(account1);
-            if (result==true){
-                /**日志部分**/
-                if(account1 != null){
-                    HttpServletRequest httpRequest= req;
-                    String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
-                            + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+            if (isEqual) {
+                Account account1 = new Account();
+                account1.setFirstname(this.firstName);
+                account1.setLastname(this.lastName);
+                account1.setEmail(this.email);
+                account1.setPhone(this.phone);
+                account1.setPassword(this.password);
+                account1.setUserid(this.name);
+                account1.setName(this.name);
+                account1.setLangpref(this.languagePreference);
+                account1.setAddr1(this.address1);
+                account1.setAddr2(this.address2);
+                account1.setCity(this.city);
+                account1.setCountry(this.country);
+                account1.setState(this.state);
+                account1.setStatus(this.status);
+                account1.setZip(this.zip);
+                account1.setFavcategory(this.favouriteCategoryId);
+                //我直接false和true，不管了
+                account1.setMylistopt(false);
+                account1.setBanneropt(true);
+                account1.setBannername("0");
+                System.out.println(account1.isBanneropt());
+                AccountService accountService = new AccountService();
 
-                    LogService logService = new LogService();
-                    String logInfo = logService.logInfo(" ") + strBackUrl + " 注册新的账户";
-                    logService.insertLogInfo(account.getUserid(), logInfo);
+                boolean result = accountService.insertAccount(account1);
+                if (result == true) {
+                    /**日志部分**/
+                    if (account1 != null) {
+                        HttpServletRequest httpRequest = req;
+                        String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                                + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                        LogService logService = new LogService();
+                        String logInfo = logService.logInfo(" ") + strBackUrl + " 注册新的账户";
+                        logService.insertLogInfo(account.getUserid(), logInfo);
+                    }
+
+                    resp.sendRedirect("loginForm");
+                } else {
+                    this.rmsg = "注册失败！";
+                    req.setAttribute("msg", this.rmsg);
+
+                    if (account1 != null) {
+                        HttpServletRequest httpRequest = req;
+                        String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                                + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+                        LogService logService = new LogService();
+                        String logInfo = logService.logInfo(" ") + strBackUrl + " 注册失败";
+                        logService.insertLogInfo(account1.getUserid(), logInfo);
+                    }
+
+                    req.getRequestDispatcher(REGISTER_FORM).forward(req, resp);
                 }
-
-                resp.sendRedirect("loginForm");
             }else{
-                this.rmsg="注册失败！";
+                this.rmsg="验证码错误";
                 req.setAttribute("msg",this.rmsg);
-
-                if(account1 != null){
-                    HttpServletRequest httpRequest= req;
-                    String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
-                            + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-
-                    LogService logService = new LogService();
-                    String logInfo = logService.logInfo(" ") + strBackUrl + " 注册失败";
-                    logService.insertLogInfo(account.getUserid(), logInfo);
-                }
-
-                req.getRequestDispatcher(REGISTER_FORM).forward(req,resp);
+                req.getRequestDispatcher(REGISTER_FORM).forward(req, resp);
             }
         }
     }
+
     private boolean validate(){
         if (this.name==null || this.name==""){
             this.rmsg="输入的用户名不能为空！";
@@ -170,11 +191,12 @@ public class RegisteronServlet extends HttpServlet {
             this.rmsg="输入的languagePreference不能为空！";
             return false;
         }
-        if (this.exchange=="1"){
-            this.listOption=true;
-        }else {
-            this.listOption=false;
-        }
+//        if (this.exchange=="1"){
+//            this.listOption=true;
+//        }else {
+//            this.listOption=false;
+//        }
+        this.listOption=false;
         if (this.exchange2=="1"){
             this.bannerOption=true;
         }else {
